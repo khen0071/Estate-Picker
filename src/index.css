@@ -99,7 +99,7 @@ button {
   transition: 0.5s;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   .icon {
     font-size: 14px;
   }
