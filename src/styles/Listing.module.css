@@ -1,6 +1,9 @@
 .listingContent {
   margin: 0px 80px;
 }
+.listingContainer {
+  margin-bottom: 50px;
+}
 
 .listingDetails {
   display: grid;

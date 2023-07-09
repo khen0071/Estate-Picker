@@ -12,17 +12,16 @@ const ListingItem = ({ listing, id, onDelete, onEdit }) => {
           <div className={styles.detailListContainer}>
             <h3>{listing.name}</h3>
             <h4>{listing.location}</h4>
+            <div className={styles.typeContainer}>
+              {" "}
+              {listing.type === "rent" ? (
+                <p className={styles.forRent}>Rent</p>
+              ) : (
+                <p className={styles.forSale}>Sale</p>
+              )}
+            </div>
 
             <div className={styles.priceContainer}>
-              <div className={styles.typeContainer}>
-                {" "}
-                {listing.type === "rent" ? (
-                  <p className={styles.forRent}>Rent</p>
-                ) : (
-                  <p className={styles.forSale}>Sale</p>
-                )}
-              </div>
-
               {listing.offer ? (
                 <p className={styles.regularPrice}>
                   $
@@ -48,7 +47,7 @@ const ListingItem = ({ listing, id, onDelete, onEdit }) => {
                 </p>
               ) : null}
               {listing.type === "rent" && (
-                <p className={styles.perMonth}> / monthly</p>
+                <p className={styles.perMonth}> / month</p>
               )}
             </div>
 

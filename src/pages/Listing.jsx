@@ -179,7 +179,7 @@ const Listing = () => {
                   </p>
                 ) : null}
                 {listing.type === "rent" && (
-                  <p className={styles.perMonth}> / monthly</p>
+                  <p className={styles.perMonth}> / month</p>
                 )}
               </div>
             </div>

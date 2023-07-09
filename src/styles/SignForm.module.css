@@ -135,6 +135,7 @@ main {
     font-size: 18px;
   }
   .form_input input {
+    font: 16px;
     width: 250px;
   }
   .registerButton {
