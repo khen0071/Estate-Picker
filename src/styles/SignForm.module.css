@@ -154,14 +154,18 @@ main {
 }
 
 @media only screen and (max-width: 400px) {
-  .signUp_container {
-  }
-
-  .overlay_container {
-  }
-
   .content_box {
     padding: 20px 30px;
     margin: 10px 0;
+  }
+
+  .signUp_container {
+    background-image: none;
+    height: 100%;
+    background: #333;
+  }
+
+  .overlay_container {
+    background: none;
   }
 }
