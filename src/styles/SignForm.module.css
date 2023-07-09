@@ -13,12 +13,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 95vh;
+  height: auto;
 }
 
 .overlay_container {
   background: rgba(0, 0, 0, 0.7);
-  height: 95vh;
+  height: 100vh;
 }
 
 .signUp_content_box {

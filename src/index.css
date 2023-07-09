@@ -99,6 +99,23 @@ button {
   transition: 0.5s;
 }
 
+@media only screen and (max-width: 400px) {
+  .icon {
+    font-size: 14px;
+  }
+
+  .icon-dark {
+    font-size: 14px;
+  }
+
+  .navbarParaActive {
+    font-size: 10px;
+  }
+  .navbarPara {
+    font-size: 10px;
+  }
+}
+
 /*Conditional for Icons End*/
 
 .profileName,

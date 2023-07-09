@@ -1,3 +1,6 @@
+.explore_container {
+  margin-bottom: 50px;
+}
 .borderDesign {
   border-bottom: 3px solid var(--green);
   width: 200px;
