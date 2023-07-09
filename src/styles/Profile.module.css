@@ -1,0 +1,252 @@
+.profile_container {
+  margin: 20px 50px;
+}
+
+.flex_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile_content {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  padding: 20px;
+}
+
+.profile_content h2 {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #333;
+  font-size: 18px;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.pageHeader h2 {
+  text-align: center;
+  padding-bottom: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.profileDetailsHeader {
+  display: flex;
+  align-items: center;
+}
+
+.profileDetailsHeader h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+.profileDetailsHeader span {
+  color: var(--green);
+  margin-left: 10px;
+}
+
+.button {
+  padding: 8px 20px;
+  border: 3px solid var(--green);
+  background: #fff;
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+.button:hover {
+  color: #fff;
+  background: var(--green);
+  border: 3px solid #939393;
+  transition: 1s;
+}
+.button i {
+  padding-right: 10px;
+}
+
+.editButton p {
+  margin-left: 8px;
+}
+
+.profileCard_container {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  padding: 20px;
+  margin: 0 10px;
+}
+
+.profileCard_container h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #333;
+  font-size: 18px;
+}
+
+.profileCard_container small {
+  color: var(--red);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.profile_card_flex_container {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.button_flex {
+  display: flex;
+}
+
+.profileCard input {
+  padding: 9px 15px;
+  width: 300px;
+  margin: 5px 0;
+}
+
+.createListingContainer {
+  margin: 20px 0;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+}
+.createListingContainer i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.listingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 10px;
+}
+.listingHeader h4 {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #333;
+  font-size: 16px;
+}
+
+/*Listing Section*/
+.listingList {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+/*Listing Section End*/
+
+@media only screen and (max-width: 1100px) {
+  .flex_container {
+    flex-direction: column;
+  }
+
+  .profile_content,
+  .profileCard_container {
+    margin: 10px 0;
+  }
+  .listingList {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .listingList {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .flex_container {
+    flex-direction: column;
+  }
+
+  .profile_container {
+    margin: 20px 30px;
+  }
+  .pageHeader h2 {
+    font-size: 18px;
+    padding-bottom: 0px;
+  }
+  .button {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+  .profile_content,
+  .profileCard_container {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+  .profile_content h2 {
+    font-size: 16px;
+    padding: 5px;
+    margin: 0;
+  }
+  .profileCard_container h2 {
+    font-size: 16px;
+    padding-top: 5px;
+  }
+
+  .profileCard_container h4 {
+    font-size: 16px;
+  }
+
+  .profileCard_container small {
+    font-size: 12px;
+  }
+
+  .profile_card_flex_container {
+    padding: 5px 0;
+  }
+
+  .profileDetailsHeader h4,
+  span {
+    font-size: 14px;
+  }
+
+  .profileDetailsHeader {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .profile_content {
+    padding: 10px;
+  }
+
+  .profile_card_flex_container {
+    flex-direction: column;
+  }
+
+  .profileCard input {
+    width: 100%;
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .listingHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .listingHeader h4 {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #333;
+    font-size: 16px;
+  }
+}

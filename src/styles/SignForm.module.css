@@ -1,0 +1,154 @@
+.pageHeader {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-bottom: 5px solid var(--green);
+}
+
+.signUp_container {
+  background-image: url("../assets/images/house3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 95vh;
+}
+
+.overlay_container {
+  background: rgba(0, 0, 0, 0.7);
+  height: 95vh;
+}
+
+.signUp_content_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.content_box {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px 50px;
+  border: 5px solid var(--green);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_input h4 {
+  font-size: 14px;
+}
+
+.form_input input {
+  padding: 10px;
+  border-radius: 20px;
+  width: 300px;
+  margin: 5px 0;
+  border: 3px solid var(--green);
+}
+
+.showPasswordContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding-top: 8px;
+}
+
+.showPasswordContainer i {
+  padding-right: 5px;
+}
+
+.showPasswordContainer span {
+  font-size: 12px;
+  font-weight: bold;
+
+  color: #060606;
+}
+
+.form_input_password {
+  display: flex;
+  align-items: center;
+}
+
+.form_input_password i {
+  font-size: 20px;
+  margin-left: 10px;
+  color: var(--green);
+}
+
+.registerButton {
+  padding: 10px;
+  border-radius: 20px;
+  width: 300px;
+  margin: 10px 0px 30px 0px;
+  border: 1px solid #aaaaaa;
+
+  background: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 200;
+  cursor: pointer;
+}
+.registerButton i {
+  font-size: 16px;
+  color: #fff;
+  padding-right: 10px;
+}
+
+.signIn_container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signInLink {
+  font-weight: 400;
+  color: var(--green);
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.forgotPasswordContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forgotPassword {
+  font-size: 16px;
+  color: var(--red);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 550px) {
+  .pageHeader {
+    font-size: 18px;
+  }
+  .form_input input {
+    width: 250px;
+  }
+  .registerButton {
+    width: 250px;
+  }
+
+  .signIn_container {
+    flex-direction: column;
+  }
+
+  .content_box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border: 5px solid var(--green);
+    width: auto;
+  }
+}

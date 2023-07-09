@@ -1,0 +1,306 @@
+.listingContent {
+  margin: 0px 80px;
+}
+
+.listingDetails {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.section1 {
+  background: #fff;
+  margin: 20px 5px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section2 {
+  background: #fff;
+  margin: 20px 5px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.priceContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  margin: 20px 5px;
+  padding: 20px;
+}
+
+.section1 h3 {
+  font-size: 18px;
+}
+
+.section1 h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #979797;
+  padding-bottom: 10px;
+}
+
+.priceContainer {
+  font-weight: bold;
+}
+.regularPrice {
+  text-decoration: line-through;
+  padding-right: 5px;
+  color: #939393;
+  font-size: 16px;
+}
+.regularPrice2 {
+  padding-right: 5px;
+  color: var(--red);
+  font-size: 20px;
+}
+.discountedPrice {
+  color: var(--red);
+  font-size: 20px;
+}
+.typeContainer {
+  margin-right: 10px;
+  padding: 0 10px;
+  background: #e1e1e1;
+}
+.forRent,
+.forSale {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.forRent {
+  color: blue;
+}
+.forSale {
+  color: green;
+}
+.perMonth {
+  color: #939393;
+  padding-left: 3px;
+}
+
+.contactButton {
+  padding: 10px 20px;
+  text-align: center;
+  background: #fff;
+  color: var(--green);
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 3px solid var(--green);
+}
+
+.shareIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  text-align: center;
+  background: #fff;
+  color: var(--blue);
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 3px solid var(--blue);
+}
+
+.shareIcon i {
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.priceSlash {
+  text-decoration: line-through;
+}
+.listContainer {
+  display: flex;
+}
+
+/*Icons Section*/
+
+.iconsContainer {
+  margin: 20px 0;
+}
+
+.listContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.iconListing {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  font-size: 30px;
+  padding: 0 10px;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content h4 {
+  color: #454545;
+  font-size: 12px;
+  font-weight: 400;
+}
+.content p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/*Icons Section End*/
+
+/*Swiper*/
+
+.swiperSlideDiv {
+  position: relative;
+  height: 50vh;
+}
+
+.swiperSlideDiv img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .detailContainer {
+    width: 200px;
+  }
+  .listingContent {
+    margin: 0px 20px;
+  }
+  .icon {
+    font-size: 20px;
+  }
+  .content h4 {
+    font-size: 14px;
+  }
+  .content p {
+    font-size: 14px;
+  }
+  .section1 h3 {
+    font-size: 16px;
+  }
+  .section1 h4 {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .listingDetails {
+    grid-template-columns: auto;
+  }
+  .content h4 {
+    font-size: 10px;
+  }
+  .content p {
+    font-size: 12px;
+  }
+  .section1,
+  .section2 {
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .section1 h3 {
+    font-size: 16px;
+  }
+  .section1 h4 {
+    font-size: 14px;
+  }
+  .forRent,
+  .forSale {
+    font-size: 14px;
+  }
+  .regularPrice {
+    font-size: 14px;
+  }
+  .regularPrice2 {
+    font-size: 16px;
+  }
+  .discountedPrice {
+    font-size: 16px;
+  }
+
+  .perMonth {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .listContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+  }
+
+  .iconListing {
+    justify-content: flex-start;
+  }
+  .icon {
+    width: 50px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .listContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+  }
+
+  .section1 h3 {
+    font-size: 14px;
+  }
+
+  .section1 h4 {
+    font-size: 12px;
+  }
+
+  .forRent,
+  .forSale {
+    font-size: 14px;
+  }
+  .detailContainer {
+    width: 200px;
+  }
+
+  .priceContainer {
+  }
+
+  .regularPrice {
+    font-size: 12px;
+  }
+  .regularPrice2 {
+    font-size: 14px;
+  }
+  .discountedPrice {
+    font-size: 14px;
+  }
+
+  .contactButton {
+    padding: 13px;
+    font-size: 10px;
+  }
+
+  .shareIcon {
+    font-size: 10px;
+    padding: 10px;
+  }
+  .perMonth {
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quintessential&display=swap");
+
+:root {
+  --green: #00c9bb;
+  --yellow: #fcd200;
+  --red: #fe6363;
+  --blue: #6650d7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(210, 210, 210, 1) 50%,
+    rgba(185, 185, 185, 1) 100%
+  ); */
+  background: #eeeeee;
+  margin-bottom: 30px;
+}
+
+textarea {
+  font-family: "Nunito", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.spinner_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+.spinnerH2,
+.spinnerp {
+  color: #666;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* @media only screen and (max-width: 900px) {
+  body {
+    margin: 40px 100px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    margin: 40px 50px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    margin: 20px 20px;
+  }
+} */
+
+/*Conditional for Icons*/
+
+.icon {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.icon-dark {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #777777;
+  transition: 0.5s;
+}
+
+.navbarParaActive {
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  transition: 0.5s;
+}
+.navbarPara {
+  color: #777777;
+  font-weight: 400;
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+/*Conditional for Icons End*/
+
+.profileName,
+.profileEmail,
+.profileAddress {
+  font-weight: 600;
+  width: 100%;
+  border: 3px solid #adabab;
+  background: #fff;
+  text-decoration: line-through;
+}
+
+.profileAddressActive,
+.profileEmailActive,
+.profileNameActive {
+  background-color: #fff;
+  border: 3px solid var(--green);
+}
+
+/*Google Sign In*/
+.googleSignInContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.googleSignInContainer h4 {
+  padding-bottom: 5px;
+}
+.googleSignInContainer img {
+  width: 15%;
+  height: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+/*Google Sign In End*/
+
+/*Create List conditional buttons*/
+
+.buttonActive {
+  padding: 8px 20px;
+  border: 2px solid #ddd;
+  margin: 10px 10px 10px 0;
+  background: var(--green);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.buttonInActive {
+  padding: 8px 20px;
+  border: 2px solid #c8c7c7;
+  margin: 10px 10px 10px 0;
+  background: #fff;
+  color: #888888;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 1s;
+  text-transform: uppercase;
+}
+
+/*Create List conditional buttons end*/
+
+/*Swiper*/
+.swiperSlideDiv {
+  min-height: 400px;
+  width: 100%;
+  margin: auto;
+  border: 10px solid #fff;
+}
+
+.swiperSlideDivExplore {
+  min-height: 500px;
+  width: 100%;
+  margin: auto;
+
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.noAvailable {
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 800px) {
+  .swiperSlideDiv {
+    min-height: 250px;
+  }
+  .swiperSlideDivExplore {
+    min-height: 400px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .swiperSlideDivExplore {
+    min-height: 300px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .swiperSlideDiv {
+    min-height: 200px;
+  }
+  .swiperSlideDivExplore {
+    min-height: 250px;
+  }
+}
+/*Swiper End*/
+
+/*Pagination*/
+.paginationButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.paginationButton {
+  padding: 8px 20px;
+  border: 2px solid #ddd;
+  margin: 10px 10px 10px 0;
+  background: var(--green);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+/*Pagination End*/

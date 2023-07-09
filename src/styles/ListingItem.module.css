@@ -1,0 +1,195 @@
+.itemContainer img {
+  width: auto;
+  height: 300px;
+}
+.itemContainer {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 10px solid #fff;
+}
+
+.detailListContainer {
+  padding: 10px 0px;
+}
+
+.detailListContainer h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+}
+.detailListContainer h4 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #979797;
+  padding-bottom: 10px;
+}
+
+.priceContainer {
+  display: flex;
+  font-weight: bold;
+  font-size: 14px;
+}
+.regularPrice {
+  text-decoration: line-through;
+  padding-right: 5px;
+  color: #939393;
+}
+.regularPrice2 {
+  padding-right: 5px;
+  color: var(--red);
+}
+.discountedPrice {
+  color: var(--red);
+}
+.typeContainer {
+  margin-right: 10px;
+  padding: 0 10px;
+  background: #e1e1e1;
+}
+.forRent,
+.forSale {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.forRent {
+  color: blue;
+}
+.forSale {
+  color: green;
+}
+.perMonth {
+  color: #939393;
+  padding-left: 3px;
+}
+
+.listingItemsButtonsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listingItemButton {
+  padding: 10px 20px;
+  text-align: center;
+  margin: 20px 0px 10px 0;
+  background: var(--green);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 3px solid #ddd;
+}
+
+.listingButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listingItemButtonDelete {
+  padding: 10px 20px;
+  text-align: center;
+  margin: 20px 0px 10px 10px;
+  background: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 3px solid var(--red);
+  color: var(--red);
+}
+.listingItemButtonDelete:hover {
+  color: #fff;
+  background: var(--red);
+  border: 3px solid #939393;
+  transition: 1s;
+}
+.listingItemButtonEdit {
+  padding: 10px 20px;
+  text-align: center;
+  margin: 20px 0px 10px 10px;
+  background: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border: 3px solid var(--green);
+  color: var(--green);
+}
+.listingItemButtonEdit:hover {
+  color: #fff;
+  background: var(--green);
+  border: 3px solid #939393;
+  transition: 1s;
+}
+
+.listingItemButtonDelete i,
+.listingItemButtonEdit i {
+  margin-right: 0 !important;
+}
+
+.listingItemButton:hover {
+  background: #01827a;
+  color: #fff;
+  border: 3px solid #afafaf;
+  transition: 0.6s;
+}
+
+@media only screen and (max-width: 1000px) {
+  .itemContainer img {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .itemContainer img {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .detailListContainer h3 {
+    font-size: 16px;
+  }
+  .detailListContainer h4 {
+    font-size: 12px;
+  }
+  .itemContainer img {
+    width: 100%;
+    height: auto;
+  }
+  .itemContainer {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .priceContainer {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .listingItemsButtonsContainer {
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 0 0;
+  }
+  .listingItemButton {
+    font-size: 10px;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .listingItemButtonDelete,
+  .listingItemButtonEdit {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  .listingItemButtonDelete i,
+  .listingItemButtonEdit i {
+    font-size: 20px !important;
+    padding: 0 5px;
+  }
+}

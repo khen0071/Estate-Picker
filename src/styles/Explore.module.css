@@ -1,0 +1,164 @@
+.borderDesign {
+  border-bottom: 3px solid var(--green);
+  width: 200px;
+  margin: 5px auto 10px auto;
+}
+
+/*Category*/
+
+.categoryContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 70vh;
+  padding: 50px 90px;
+}
+
+.headerCategory {
+  font-style: italic;
+  font-family: "Quintessential", cursive;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: #333;
+}
+.categoryTextContainer h4 {
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-bottom: 10px;
+  color: #333;
+}
+
+.categoryList button {
+  padding: 20px 40px;
+  border: 3px solid #ddd;
+  cursor: pointer;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  background: var(--green);
+}
+
+.categoryList button:hover {
+  color: #fff !important;
+  background: #01827a !important;
+  transition: 1s;
+}
+
+.categoryTextContainer {
+  width: 60%;
+}
+
+.iconsContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 5px;
+  flex-wrap: wrap;
+}
+.iconsContainer i {
+  padding: 10px;
+  font-size: 30px;
+  color: var(--green);
+}
+
+.iconsContainer p {
+  color: #a5a5a5;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.categoryIconsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0 20px 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .categoryList button {
+    padding: 20px;
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .categoryTextContainer {
+    width: 80%;
+  }
+  .categoryContainer {
+    height: auto;
+    width: 100%;
+    padding: 70px 20px;
+  }
+  .heroItems {
+    height: 50vh;
+    padding: 20px;
+  }
+  .categoryIconsContainer {
+    padding: 20px 0;
+  }
+
+  .iconsContainer i {
+    font-size: 22px;
+  }
+  .iconsContainer p {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .categoryContainer {
+    padding: 40px 20px;
+  }
+  .categoryTextContainer {
+    width: 90%;
+  }
+
+  .headerCategory {
+    font-size: 18px;
+  }
+  .categoryTextContainer h4 {
+    font-size: 12px;
+  }
+
+  .iconsContainer i {
+    font-size: 20px;
+  }
+  .iconsContainer p {
+    font-size: 10px;
+  }
+
+  .categoryList {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .categoryList button {
+    width: 250px;
+    margin: 5px 0;
+  }
+  .borderDesign {
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .categoryContainer {
+    padding: 20px;
+  }
+  .headerCategory {
+    font-size: 16px;
+  }
+  .categoryTextContainer h4 {
+    font-size: 10px;
+  }
+  .borderDesign {
+    width: 100px;
+  }
+  .categoryList button {
+    padding: 15px;
+    font-size: 10px;
+  }
+}
