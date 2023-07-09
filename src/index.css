@@ -198,7 +198,6 @@ button {
   min-height: 500px;
   width: 100%;
   margin: auto;
-
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -229,7 +228,7 @@ button {
     min-height: 200px;
   }
   .swiperSlideDivExplore {
-    min-height: 250px;
+    min-height: 220px;
   }
 }
 /*Swiper End*/
