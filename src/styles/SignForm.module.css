@@ -162,8 +162,6 @@ main {
   .signUp_container {
     background-image: none;
     height: 100%;
-    background: #444;
-    height: 95vh;
   }
 
   .overlay_container {
