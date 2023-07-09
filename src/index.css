@@ -145,6 +145,7 @@ button {
 
 .googleSignInContainer h4 {
   padding-bottom: 5px;
+  font-size: 12px;
 }
 .googleSignInContainer img {
   width: 15%;

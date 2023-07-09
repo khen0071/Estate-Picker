@@ -1,6 +1,6 @@
 .pageHeader {
   text-align: center;
-  font-size: 25px;
+  font-size: 18px;
   margin-bottom: 20px;
   padding-bottom: 10px;
   font-weight: 800;
@@ -13,12 +13,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: auto;
+  height: 95vh;
 }
 
 .overlay_container {
   background: rgba(0, 0, 0, 0.7);
-  height: 100vh;
+  height: 100%;
 }
 
 .signUp_content_box {
@@ -40,11 +40,11 @@ main {
 }
 
 .form_input h4 {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .form_input input {
-  padding: 10px;
+  padding: 5px;
   border-radius: 20px;
   width: 300px;
   margin: 5px 0;
@@ -84,21 +84,19 @@ main {
 .registerButton {
   padding: 10px;
   border-radius: 20px;
-  width: 300px;
-  margin: 10px 0px 30px 0px;
+  width: 100%;
+  margin: 10px 0px 10px 0px;
   border: 1px solid #aaaaaa;
-
   background: var(--green);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 200;
-  cursor: pointer;
 }
 .registerButton i {
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
   padding-right: 10px;
 }
@@ -108,6 +106,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 12px;
 }
 
 .signInLink {
@@ -124,7 +123,7 @@ main {
 }
 
 .forgotPassword {
-  font-size: 16px;
+  font-size: 12px;
   color: var(--red);
   font-weight: 600;
   cursor: pointer;
@@ -135,7 +134,7 @@ main {
     font-size: 18px;
   }
   .form_input input {
-    font: 16px;
+    font-size: 16px !important;
     width: 250px;
   }
   .registerButton {
@@ -151,5 +150,18 @@ main {
     padding: 30px;
     border: 5px solid var(--green);
     width: auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .signUp_container {
+  }
+
+  .overlay_container {
+  }
+
+  .content_box {
+    padding: 20px 30px;
+    margin: 10px 0;
   }
 }
