@@ -15,6 +15,20 @@ import Spinner from "../components/Spinner";
 import ListingItem from "../components/ListingItem";
 import styles from "../styles/Category.module.css";
 
+import { motion } from "framer-motion";
+
+const categoryVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
 const Category = () => {
   const [listings, setListings] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -102,7 +116,12 @@ const Category = () => {
 
   return (
     <>
-      <div className={styles.categoryContainer}>
+      <motion.div
+        className={styles.categoryContainer}
+        variants={categoryVariant}
+        initial="initial"
+        animate="animate"
+      >
         <header className={styles.categoryHeader}>
           <h4>
             {params.categoryName === "rent"
@@ -142,7 +161,7 @@ const Category = () => {
             No Available Listings for {params.categoryName}
           </p>
         )}
-      </div>
+      </motion.div>
     </>
   );
 };

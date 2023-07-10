@@ -7,6 +7,22 @@ import styles from "../styles/ExploreSlider.module.css";
 import { register } from "swiper/element/bundle";
 register();
 
+import { motion } from "framer-motion";
+
+const exploreVariant = {
+  initial: {
+    y: "-100vh",
+    opacity: 0,
+  },
+  animate: {
+    y: "0",
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 const ExploreSlider = () => {
   const [loading, setLoading] = useState(true);
   const [listings, setListings] = useState(null);
@@ -48,72 +64,78 @@ const ExploreSlider = () => {
   return (
     listings && (
       <>
-        <swiper-container
-          ref={swiperElRef}
-          slides-per-view="1"
-          navigation="true"
-          pagination="false"
+        <motion.div
+          variants={exploreVariant}
+          initial="initial"
+          animate="animate"
         >
-          {listings.map(({ data, id }) => (
-            <swiper-slide
-              key={id}
-              onClick={() => navigate(`/category/${data.type}/${id}`)}
-            >
-              <div
-                className="swiperSlideDivExplore"
-                style={{
-                  background: `url(${data.imgUrls[0]}) center no-repeat`,
-                  backgroundSize: "cover",
-                }}
+          <swiper-container
+            ref={swiperElRef}
+            slides-per-view="1"
+            navigation="true"
+            pagination="false"
+          >
+            {listings.map(({ data, id }) => (
+              <swiper-slide
+                key={id}
+                onClick={() => navigate(`/category/${data.type}/${id}`)}
               >
-                <div className={styles.exploreSlideContent}>
-                  <h4>{data.name}</h4>
+                <div
+                  className="swiperSlideDivExplore"
+                  style={{
+                    background: `url(${data.imgUrls[0]}) center no-repeat`,
+                    backgroundSize: "cover",
+                  }}
+                >
+                  <div className={styles.exploreSlideContent}>
+                    <h4>{data.name}</h4>
 
-                  <div className={styles.explorePriceContainer}>
-                    <div className={styles.priceContainer}>
-                      {data.offer ? (
-                        <p className={styles.regularPrice}>
-                          $
-                          {data.regularPrice
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                        </p>
-                      ) : (
-                        <p className={styles.regularPrice2}>
-                          $
-                          {data.regularPrice
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                        </p>
-                      )}
+                    <div className={styles.explorePriceContainer}>
+                      <div className={styles.priceContainer}>
+                        {data.offer ? (
+                          <p className={styles.regularPrice}>
+                            $
+                            {data.regularPrice
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                          </p>
+                        ) : (
+                          <p className={styles.regularPrice2}>
+                            $
+                            {data.regularPrice
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                          </p>
+                        )}
 
-                      {data.offer ? (
-                        <p className={styles.discountedPrice}>
-                          $
-                          {data.discountedPrice
-                            .toString()
-                            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                        </p>
-                      ) : null}
-                      {data.type === "rent" && (
-                        <p className={styles.perMonth}> / monthly</p>
-                      )}
-                    </div>
+                        {data.offer ? (
+                          <p className={styles.discountedPrice}>
+                            $
+                            {data.discountedPrice
+                              .toString()
+                              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                          </p>
+                        ) : null}
+                        {data.type === "rent" && (
+                          <p className={styles.perMonth}> / monthly</p>
+                        )}
+                      </div>
 
-                    <div className={styles.typeContainer}>
-                      {" "}
-                      {data.type === "rent" ? (
-                        <p className={styles.forRent}>Rent</p>
-                      ) : (
-                        <p className={styles.forSale}>Sale</p>
-                      )}
+                      <div className={styles.typeContainer}>
+                        {" "}
+                        {data.type === "rent" ? (
+                          <p className={styles.forRent}>Rent</p>
+                        ) : (
+                          <p className={styles.forSale}>Sale</p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </swiper-slide>
-          ))}
-        </swiper-container>
+              </swiper-slide>
+            ))}
+          </swiper-container>
+        </motion.div>
       </>
     )
   );

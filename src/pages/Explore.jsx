@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/Explore.module.css";
-
 import ExploreSlider from "../components/ExploreSlider";
+import { motion } from "framer-motion";
+
+const exploreVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 const Explore = () => {
   return (
@@ -36,7 +48,14 @@ const Explore = () => {
 
           <div className={styles.categoryContainer}>
             <div className={styles.categoryTextContainer}>
-              <p className={styles.headerCategory}>Finding The Right Place</p>
+              <motion.p
+                className={styles.headerCategory}
+                variants={exploreVariant}
+                initial="initial"
+                animate="animate"
+              >
+                Finding The Right Place
+              </motion.p>
               <p className={styles.borderDesign}></p>
               <h4>Category Listings</h4>
 
