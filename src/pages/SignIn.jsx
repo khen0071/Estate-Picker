@@ -2,10 +2,20 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import OAuth from "../components/OAuth";
-
+import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 
-import styles from "../styles/SignForm.module.css";
+const formVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -45,82 +55,81 @@ const SignIn = () => {
 
   return (
     <>
-      <div className={styles.signUp_container}>
-        <div className={styles.overlay_container}>
-          <div className={styles.signUp_content_box}>
-            <div className={styles.content_box}>
-              <header>
-                <p className={styles.pageHeader}>Login Account</p>
-              </header>
+      <motion.div
+        variants={formVariant}
+        initial="initial"
+        animate="animate"
+        className="h-[85vh] flex justify-center items-start md:h-[85vh]  md:items-center"
+      >
+        <div className="border-2 border-white m-5 p-10 md:m-20">
+          <h1 className="text-center text-[24px] text-lightOrange font-bold uppercase">
+            Welcome back
+          </h1>
+          <h1 className="text-center text-[18px] text-white font-bold pb-1 mb-3 uppercase border-b-2">
+            Sign In
+          </h1>
 
-              <main>
-                <form onSubmit={onSubmit}>
-                  <div className={styles.form_input}>
-                    <h4>Email</h4>
-                    <input
-                      type="email"
-                      className={styles.emailInput}
-                      id="email"
-                      value={email}
-                      onChange={onChange}
-                    />
-                  </div>
-
-                  <div className={styles.form_input}>
-                    <h4>Password</h4>
-                    <div className={styles.form_input_password}>
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        className={styles.passwordInput}
-                        id="password"
-                        value={password}
-                        onChange={onChange}
-                      />
-                    </div>
-                    {/* <i
-                    className="fa-solid fa-eye"
-                    onClick={() => setShowPassword((prevState) => !prevState)}
-                  ></i> */}
-                    <div
-                      className={styles.showPasswordContainer}
-                      onClick={() => setShowPassword((prevState) => !prevState)}
-                    >
-                      <i className="fa-solid fa-eye"></i>
-                      <span>Show Password</span>
-                    </div>
-                  </div>
-
-                  {/* <Link to="/forgot-password" className="forgotPasswordLink">
-              Forgot Password
-            </Link> */}
-
-                  <div className={styles.registerBar}>
-                    <button className={styles.registerButton}>
-                      <i className="fa-solid fa-arrow-right-to-bracket"></i>
-                      Sign In
-                    </button>
-                  </div>
-                </form>
-
-                <OAuth />
-
-                <div className={styles.forgotPasswordContainer}>
-                  <Link to="/forgot-password">
-                    <p className={styles.forgotPassword}>Forgot Password?</p>
-                  </Link>
-                </div>
-
-                <div className={styles.signIn_container}>
-                  <h4>Don't have an account?</h4>
-                  <Link to="/sign-up" className={styles.signInLink}>
-                    Sign Up
-                  </Link>
-                </div>
-              </main>
+          <form onSubmit={onSubmit}>
+            <div className="my-3">
+              <label className="text-white text-[14px] font-semibold">
+                Email
+              </label>
+              <input
+                className="w-full border-4  border-lightOrange mt-1 p-[8px]"
+                type="email"
+                id="email"
+                value={email}
+                required
+                onChange={onChange}
+              />
             </div>
+            <div className="my-3">
+              <label className="text-white text-[14px] font-semibold">
+                Password
+              </label>
+              <input
+                className="w-full border-4  border-lightOrange mt-1 p-[8px]"
+                type={showPassword ? "text" : "password"}
+                id="password"
+                value={password}
+                required
+                onChange={onChange}
+              />
+            </div>
+            <div className="text-center">
+              <span
+                className="text-[14px] text-white font-semibold cursor-pointer"
+                onClick={() => setShowPassword((prevState) => !prevState)}
+              >
+                <i className="fa-solid fa-eye form_icon_eye"></i>
+                Show Password
+              </span>
+            </div>
+
+            <OAuth />
+
+            <button className="buttonContainer text-center my-2 text-[14px] font-bold uppercase w-full">
+              Sign In <i className="fa-solid fa-arrow-right form_icon"></i>
+            </button>
+          </form>
+
+          <div className="text-center pt-3">
+            <p className="text-[14px] text-black font-semibold">
+              <Link to="/forgot-password" className="cursor-pointer">
+                Forgot Password?
+              </Link>
+            </p>
+            <p className="text-white font-semibold text-[14px]">
+              Don't have an account yet?{" "}
+              <Link to="/sign-up">
+                <strong className="text-lightOrange cursor-pointer uppercase">
+                  Sign Up
+                </strong>
+              </Link>
+            </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

@@ -15,8 +15,20 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase.config";
 import ListingItem from "../components/ListingItem";
-
 import styles from "../styles/Profile.module.css";
+import { motion } from "framer-motion";
+
+const profileVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 const Profile = () => {
   const [listings, setListings] = useState(null);
@@ -109,63 +121,72 @@ const Profile = () => {
 
   return (
     <>
-      <div className={styles.profile_container}>
-        <header className={styles.pageHeader}>
-          <h2>My Profile</h2>
+      <motion.div
+        variants={profileVariant}
+        initial="initial"
+        animate="animate"
+        className={styles.profile_container}
+      >
+        <div className="flex justify-between my-5">
+          <h1 className="text-[18px] text-white uppercase font-semibold md:text-[24px]">
+            My Profile
+          </h1>
           <button
-            type="button"
-            className={styles.button}
             onClick={logoutHandler}
+            className="buttonContainer font-semibold text-[10px] md:text-[12px]"
           >
             Logout
           </button>
-        </header>
+        </div>
 
-        <div className={styles.flex_container}>
-          <div className={styles.profile_content}>
-            <h2>Personal Details</h2>
-            <div className={styles.profileDetailsHeader}>
-              <h4>Display Name: </h4>
-              <span>{name}</span>
+        <div className="flex flex-col justify-between items-center lg:flex-row ">
+          <div className="w-full space-y-1 hover:bg-[#584657] text-center p-3 m-1 border border-l-4 border-t-4 border-gray ease-in-out duration-500 md:p-8">
+            <h1 className="text-lightOrange uppercase pb-[8px] md:text-start md:text-[18px]">
+              Personal Details
+            </h1>
+            <div className="md:flex space-x-1">
+              <h3 className="text-white text-[14px] md:text-[16px]">
+                Display Name:
+              </h3>
+              <p className="text-lightOrange text-[14px] md:text-[16px]">
+                {name}
+              </p>
             </div>
-            <div className={styles.profileDetailsHeader}>
-              <h4>Email Registered: </h4>
-              <span>{email}</span>
+            <div className="md:flex space-x-1">
+              <h3 className="text-white text-[14px] md:text-[16px]">
+                Registered Email:
+              </h3>
+              <p className="text-lightOrange text-[14px] md:text-[16px]">
+                {email}
+              </p>
             </div>
           </div>
 
-          <div className={styles.profileCard_container}>
-            <h2>Need to update profile?</h2>
-            <small>Email address cannot be changed.</small>
+          <div className="w-full md:text-start space-y-1 hover:bg-[#584657] text-center p-3 m-1 border border-l-4 border-t-4 border-gray ease-in-out duration-500 md:p-[30px]">
+            <h1 className="text-lightOrange uppercase md:text-[18px]">
+              Need to update profile?
+            </h1>
+            <p className="text-greenDark text-[10px]  italic">
+              Email address cannot be changed.
+            </p>
 
-            <div className={styles.profile_card_flex_container}>
-              <div className={styles.profileCard}>
-                <form>
-                  <input
-                    type="text"
-                    id="name"
-                    className={
-                      !changeDetails ? "profileName" : "profileNameActive"
-                    }
-                    disabled={!changeDetails}
-                    value={name}
-                    onChange={onChange}
-                  />
-
-                  {/* <input
+            <div className="flex flex-col space-x-2 items-center md:flex-row">
+              <form>
+                <input
                   type="text"
-                  id="email"
+                  id="name"
                   className={
-                    !changeDetails ? "profileEmail" : "profileEmailActive"
+                    !changeDetails
+                      ? "w-[200px] border-2 border-lightOrange p-[2px] line-through"
+                      : "w-[200px] border-2 border-lightOrange p-[2px] "
                   }
                   disabled={!changeDetails}
-                  value={email}
+                  value={name}
                   onChange={onChange}
-                /> */}
-                </form>
-              </div>
+                />
+              </form>
+
               <button
-                className={styles.button}
                 onClick={() => {
                   changeDetails && onSubmit();
                   setChangeDetails((prevState) => !prevState);
@@ -173,14 +194,24 @@ const Profile = () => {
               >
                 {changeDetails ? (
                   <>
-                    <div className={styles.button_flex}>
-                      <i className="fa-solid fa-circle-check"></i> <p>Update</p>
+                    <div
+                      className="flex justify-center items-center space-x-1 w-[100px] text-[10px] font-semibold m-auto my-2
+                    uppercase  bg-lightOrange text-secondaryBlack hover:text-black hover:bg-orange cursor-pointer py-1  border border-l-4 border-white  hover:border-white ease-in-out duration-300 md:text-[14px]
+                    "
+                    >
+                      <i className="fa-solid fa-circle-check text-black text-[14px] md:text-[14px]"></i>{" "}
+                      <p>Update</p>
                     </div>
                   </>
                 ) : (
                   <>
-                    <div className={styles.button_flex}>
-                      <i className="fa-solid fa-pen-to-square"></i> <p>Edit</p>
+                    <div
+                      className="flex justify-center items-center space-x-1 w-[80px] text-[10px] font-semibold m-auto my-2
+                    uppercase  bg-lightOrange text-secondaryBlack hover:text-black hover:bg-orange cursor-pointer py-1  border border-l-4 border-white  hover:border-white ease-in-out duration-300 md:text-[14px]
+                    "
+                    >
+                      <i className="fa-solid fa-pen-to-square text-black text-[14px] md:text-[14px]"></i>{" "}
+                      <p>Edit</p>
                     </div>
                   </>
                 )}
@@ -189,11 +220,16 @@ const Profile = () => {
           </div>
         </div>
 
-        <div className={styles.createListingContainer}>
-          <div className={styles.listingHeader}>
-            <h4>Your Listing</h4>
+        <div className="my-5">
+          <div className="flex justify-between my-5">
+            <h1 className="text-[18px] text-white uppercase font-semibold md:text-[20px]">
+              Your Listing
+            </h1>
+
             <Link to="/create-listing">
-              <button className={styles.button}>Add Listing</button>
+              <button className="buttonContainer font-semibold text-[10px] md:text-[12px]">
+                Add Listing
+              </button>
             </Link>
           </div>
 
@@ -215,7 +251,7 @@ const Profile = () => {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

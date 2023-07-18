@@ -12,8 +12,8 @@ import {
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
-import ListingItem from "../components/ListingItem";
-import styles from "../styles/Category.module.css";
+
+import ListingItemComponent from "../components/ListingItemComponent";
 
 import { motion } from "framer-motion";
 
@@ -117,12 +117,12 @@ const Category = () => {
   return (
     <>
       <motion.div
-        className={styles.categoryContainer}
+        className="m-3 my-5 md:mx-20 p-0"
         variants={categoryVariant}
         initial="initial"
         animate="animate"
       >
-        <header className={styles.categoryHeader}>
+        <header className="text-white text-center font-bold uppercase text-[18px] md:text-[24px]">
           <h4>
             {params.categoryName === "rent"
               ? "Places for rent"
@@ -134,20 +134,19 @@ const Category = () => {
         ) : listings && listings.length > 0 ? (
           <>
             <main>
-              <ul className={styles.categoryListContainer}>
+              <div className="grid 2xl:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-4">
                 {listings.map((listing) => (
-                  <ListingItem
+                  <ListingItemComponent
                     listing={listing.data}
                     id={listing.id}
                     key={listing.id}
                   />
                 ))}
-              </ul>
-              <br />
+              </div>
               {lastFetchedListing && (
-                <div className="paginationButtonContainer">
+                <div className="text-center pt-5">
                   <button
-                    className="paginationButton"
+                    className="uppercase text-[12px] md:text-[14px] font-bold bg-lightOrange text-secondaryBlack hover:text-black hover:bg-orange cursor-pointer py-2 px-4 border border-l-4 border-white  hover:border-white ease-in-out duration-300"
                     onClick={fetchMoreListings}
                   >
                     Load More...
@@ -157,7 +156,7 @@ const Category = () => {
             </main>
           </>
         ) : (
-          <p className="noAvailable">
+          <p className="text-center text-white text-[18px] font-bold">
             No Available Listings for {params.categoryName}
           </p>
         )}

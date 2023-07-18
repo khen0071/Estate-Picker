@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import {
   collection,
   getDocs,
@@ -12,8 +11,20 @@ import {
 import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
-import ListingItem from "../components/ListingItem";
-import styles from "../styles/Category.module.css";
+import ListingItemComponent from "../components/ListingItemComponent";
+import { motion } from "framer-motion";
+
+const categoryVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 const Offers = () => {
   const [listings, setListings] = useState(null);
@@ -100,31 +111,36 @@ const Offers = () => {
 
   return (
     <>
-      <div className={styles.categoryContainer}>
-        <header className={styles.categoryHeader}>
-          <h4>Property Offers</h4>
+      <motion.div
+        className="m-3 my-5 md:mx-20 p-0"
+        variants={categoryVariant}
+        initial="initial"
+        animate="animate"
+      >
+        <header>
+          <h4 className="text-white text-center font-bold uppercase text-[18px] md:text-[24px]">
+            Property Offers
+          </h4>
         </header>
         {loading ? (
           <Spinner />
         ) : listings && listings.length > 0 ? (
           <>
             <main>
-              <ul className={styles.categoryListContainer}>
+              <div className="grid 2xl:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-4">
                 {listings.map((listing) => (
-                  <ListingItem
+                  <ListingItemComponent
                     listing={listing.data}
                     id={listing.id}
                     key={listing.id}
                   />
                 ))}
-              </ul>
-
-              <br />
+              </div>
 
               {lastFetchedListing && (
-                <div className="paginationButtonContainer">
+                <div className="text-center pt-5">
                   <button
-                    className="paginationButton"
+                    className="uppercase text-[12px] md:text-[14px] font-bold bg-lightOrange text-secondaryBlack hover:text-black hover:bg-orange cursor-pointer py-2 px-4 border border-l-4 border-white  hover:border-white ease-in-out duration-300"
                     onClick={fetchMoreListings}
                   >
                     Load More...
@@ -136,7 +152,7 @@ const Offers = () => {
         ) : (
           <p>There are no current offers.</p>
         )}
-      </div>
+      </motion.div>
     </>
   );
 };

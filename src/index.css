@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quintessential&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --green: #00c9bb;
   --yellow: #fcd200;
@@ -12,20 +16,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  /* background: rgb(255, 255, 255);
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(210, 210, 210, 1) 50%,
-    rgba(185, 185, 185, 1) 100%
-  ); */
-  background: #eeeeee;
-  margin-bottom: 30px;
+  background: linear-gradient(
+      217deg,
+      rgba(35, 34, 60, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(121, 67, 72, 1), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 133, 0.7), rgba(121, 67, 72, 0.2) 70.71%);
 }
 
 textarea {
@@ -52,88 +53,67 @@ button {
   cursor: pointer;
 }
 
-/* @media only screen and (max-width: 900px) {
-  body {
-    margin: 40px 100px;
-  }
+/*navbar*/
+.navContainer {
+  border-bottom: 1px solid rgb(147, 147, 147);
 }
 
-@media only screen and (max-width: 700px) {
-  body {
-    margin: 40px 50px;
-  }
+.gradientOverlay {
+  background: linear-gradient(90deg, #b4b4b4, #ffffff);
+  text-transform: uppercase;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
-@media only screen and (max-width: 400px) {
-  body {
-    margin: 20px 20px;
-  }
-} */
-
-/*Conditional for Icons*/
-
-.icon {
-  font-size: 25px;
-  margin-bottom: 10px;
-  color: #fff;
-  transition: 0.5s;
+.linkContainer {
+  @apply text-lightwhite font-semibold uppercase hover:text-white ease-in-out duration-300 ease-in-out duration-300 cursor-pointer;
+}
+.linkContainerActive {
+  @apply text-lightOrange font-semibold uppercase hover:text-orange ease-in-out duration-300 ease-in-out duration-300 cursor-pointer;
 }
 
-.icon-dark {
-  font-size: 25px;
-  margin-bottom: 10px;
-  color: #777777;
-  transition: 0.5s;
+/*navbar end*/
+
+/*Information*/
+.informationContainer {
+  @apply flex flex-col space-y-12 justify-around text-center py-8 mx-6 md:flex-row md:space-y-0 md:m-8 md:px-8;
 }
-
-.navbarParaActive {
-  color: #fff;
-  font-weight: 400;
-  font-size: 14px;
-  transition: 0.5s;
+.informationContent {
+  @apply space-y-1 border-t border-gray pt-6 mx-5 md:border-t-0;
 }
-.navbarPara {
-  color: #777777;
-  font-weight: 400;
-  font-size: 14px;
-  transition: 0.5s;
+.information_h2 {
+  @apply text-[20px] font-bold text-white;
 }
-
-@media only screen and (max-width: 500px) {
-  .icon {
-    font-size: 14px;
-  }
-
-  .icon-dark {
-    font-size: 14px;
-  }
-
-  .navbarParaActive {
-    font-size: 10px;
-  }
-  .navbarPara {
-    font-size: 10px;
-  }
+.information_p {
+  @apply text-[14px] text-lightGray pb-4 italic;
 }
-
-/*Conditional for Icons End*/
-
-.profileName,
-.profileEmail,
-.profileAddress {
-  font-weight: 600;
-  width: 100%;
-  border: 3px solid #adabab;
-  background: #fff;
-  text-decoration: line-through;
+.information_readContainer {
+  @apply w-32 text-sm mx-auto flex justify-center items-center space-x-2 cursor-pointer pt-[10px];
 }
-
-.profileAddressActive,
-.profileEmailActive,
-.profileNameActive {
-  background-color: #fff;
-  border: 3px solid var(--green);
+.information_span {
+  @apply text-lightOrange font-bold text-[16px] hover:text-orange ease-in-out duration-300;
 }
+.information_icon {
+  @apply text-[24px] text-[#FDA50F];
+}
+.information_icon_arrow {
+  @apply text-[24px] text-lightOrange;
+}
+/*Information End*/
+
+/*Utilities*/
+.buttonContainer {
+  @apply uppercase  bg-lightOrange text-secondaryBlack hover:text-black hover:bg-orange cursor-pointer py-2 px-4 border border-l-4 border-white  hover:border-white ease-in-out duration-300;
+}
+.form_icon {
+  @apply text-[14px] text-black ml-2;
+}
+.form_icon_eye {
+  @apply text-[14px] text-white mr-2;
+}
+/*Utilities End*/
 
 /*Google Sign In*/
 .googleSignInContainer {
@@ -158,40 +138,12 @@ button {
 }
 /*Google Sign In End*/
 
-/*Create List conditional buttons*/
-
-.buttonActive {
-  padding: 8px 20px;
-  border: 2px solid #ddd;
-  margin: 10px 10px 10px 0;
-  background: var(--green);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 400;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-.buttonInActive {
-  padding: 8px 20px;
-  border: 2px solid #c8c7c7;
-  margin: 10px 10px 10px 0;
-  background: #fff;
-  color: #888888;
-  font-size: 12px;
-  font-weight: 400;
-  cursor: pointer;
-  transition: 1s;
-  text-transform: uppercase;
-}
-
-/*Create List conditional buttons end*/
-
 /*Swiper*/
 .swiperSlideDiv {
-  min-height: 400px;
+  min-height: 550px;
   width: 100%;
   margin: auto;
-  border: 10px solid #fff;
+  border: 5px solid #845357;
 }
 
 .swiperSlideDivExplore {
@@ -201,7 +153,6 @@ button {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: end;
 }
 
 .noAvailable {
@@ -210,7 +161,8 @@ button {
   font-size: 18px;
   text-transform: uppercase;
 }
-@media only screen and (max-width: 800px) {
+
+/* @media only screen and (max-width: 800px) {
   .swiperSlideDiv {
     min-height: 250px;
   }
@@ -222,10 +174,16 @@ button {
   .swiperSlideDivExplore {
     min-height: 300px;
   }
+} */
+@media only screen and (max-width: 600px) {
+  .swiperSlideDiv {
+    min-height: 400px;
+  }
 }
+
 @media only screen and (max-width: 400px) {
   .swiperSlideDiv {
-    min-height: 200px;
+    min-height: 250px;
   }
   .swiperSlideDivExplore {
     min-height: 220px;
@@ -233,21 +191,21 @@ button {
 }
 /*Swiper End*/
 
-/*Pagination*/
-.paginationButtonContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.profileName {
+  font-weight: 600;
+  width: 100%;
+  border: 3px solid #adabab;
+  background: #fff;
+  text-decoration: line-through;
+  padding: 6px 15px;
+  width: 200px;
+  margin: 5px 0;
 }
-.paginationButton {
-  padding: 8px 20px;
-  border: 2px solid #ddd;
-  margin: 10px 10px 10px 0;
-  background: var(--green);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 400;
-  cursor: pointer;
-  text-transform: uppercase;
+
+.profileNameActive {
+  background-color: #fff;
+  border: 3px solid var(--green);
+  padding: 6px 15px;
+  width: 200px;
+  margin: 5px 0;
 }
-/*Pagination End*/

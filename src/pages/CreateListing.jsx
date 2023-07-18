@@ -470,7 +470,7 @@ const CreateListing = () => {
                 <small className={styles.imagesInfo}>
                   First uploaded image will be the cover image.
                 </small>
-                <button type="submit" className={styles.submitButton}>
+                <button type="submit" className="text-black">
                   Submit Listing
                 </button>
               </div>

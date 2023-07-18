@@ -2,13 +2,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Navbar from "./components/Navbar";
+
+import Footer from "./components/Footer";
 
 import ScrollToTop from "./components/ScrollToTop";
 
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import AnimatedPage from "./components/AnimatedPage";
 import { AnimatePresence } from "framer-motion";
+import Header from "./components/Header";
 
 const App = () => {
   return (
@@ -16,6 +18,7 @@ const App = () => {
       <div>
         <Router>
           <ScrollToTop />
+          <Header />
 
           <AnimatePresence mode="wait">
             <AnimatedPage>
@@ -23,7 +26,8 @@ const App = () => {
             </AnimatedPage>
           </AnimatePresence>
 
-          <Navbar />
+          {/* <Navbar /> */}
+          <Footer />
         </Router>
 
         <ToastContainer

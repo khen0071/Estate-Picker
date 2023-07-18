@@ -6,7 +6,7 @@ const Spinner = () => {
       <Rings
         height="120"
         width="120"
-        color="#00c9bb"
+        color="#ffcd37"
         radius="6"
         wrapperStyle={{}}
         wrapperClass=""
@@ -14,8 +14,8 @@ const Spinner = () => {
         ariaLabel="rings-loading"
       />
 
-      <h2 className="spinnerH2">Loading</h2>
-      <p className="spinnerp">Please Wait</p>
+      <h2 className="text-white text-[18px] font-bold">Loading</h2>
+      <p className="text-white text-[14px]">Please Wait</p>
     </div>
   );
 };

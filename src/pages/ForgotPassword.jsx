@@ -2,8 +2,19 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
-import styles from "../styles/ForgotPassword.module.css";
+const formVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -25,45 +36,51 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <div className={styles.forgotPasswordPageContainer}>
-        <div className={styles.forgotPasswordPageContent}>
-          <div className={styles.forgotPasswordItems}>
-            <div className={styles.contentBox}>
-              <p className={styles.header}>Password Reset</p>
+      <motion.div
+        variants={formVariant}
+        initial="initial"
+        animate="animate"
+        className="h-[85vh] mt-[70px] flex justify-center items-start md:mt-[0px] md:h-[85vh]  md:items-center"
+      >
+        <div className="border-2 border-white m-5 p-10 md:m-20">
+          <h1 className="text-center text-[24px] text-lightOrange font-bold uppercase">
+            Password Reset
+          </h1>
+          <p className="text-white text-[12px]  text-center">
+            Enter Registered Email Address
+          </p>
 
-              <main>
-                <form onSubmit={onSubmit} className={styles.formContainer}>
-                  <h4>Enter your registered email address</h4>
-                  <input
-                    className={styles.emailInput}
-                    type="email"
-                    id={email}
-                    value={email}
-                    onChange={onChange}
-                  />
-
-                  {email === "" ? (
-                    <button disabled className={styles.resetButtonDisabled}>
-                      Send Reset Link
-                    </button>
-                  ) : (
-                    <button className={styles.resetButton}>
-                      Send Reset Link
-                    </button>
-                  )}
-                  {/* <button className={styles.resetButton}>
-                    Send Reset Link
-                  </button> */}
-                </form>
-              </main>
-
-              <Link to="/sign-in" className={styles.signIn}>
-                Back To Sign In
-              </Link>
+          <form onSubmit={onSubmit}>
+            <div className="my-3">
+              <input
+                className="w-full border-4  border-lightOrange mt-1 p-[8px]"
+                type="email"
+                id="email"
+                value={email}
+                required
+                onChange={onChange}
+              />
             </div>
+
+            <div className="buttonContainer text-center my-2 text-[14px] font-bold">
+              <button className="uppercase">
+                Send Link <i className="fa-solid fa-arrow-right form_icon"></i>
+              </button>
+            </div>
+          </form>
+
+          <div className="text-center pt-3">
+            <p className="text-white font-semibold text-[14px]">
+              Back to{" "}
+              <Link to="/sign-in">
+                <strong className="text-lightOrange cursor-pointer uppercase">
+                  Sign In
+                </strong>
+              </Link>
+            </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

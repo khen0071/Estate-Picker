@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 
-import Explore from "../pages/Explore";
+import Home from "../pages/Home";
 import Offers from "../pages/Offers";
 import Profile from "../pages/Profile";
 import SignIn from "../pages/SignIn";
@@ -20,7 +20,7 @@ const AnimatedRoutes = () => {
     <>
       <Routes location={location} key={location.pathname}>
         <Route path="*" element={<Navigate to="/" replace />} />
-        <Route path="/" element={<Explore />} />
+        <Route path="/" element={<Home />} />
         <Route path="/offers" element={<Offers />} />
         <Route path="/category/:categoryName" element={<Category />} />
 

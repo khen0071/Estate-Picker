@@ -36,8 +36,10 @@ const OAuth = () => {
   };
   return (
     <>
-      <div className="googleSignInContainer">
-        <h4>Sign {location.pathname === "/sign-up" ? "up" : "in"} with</h4>
+      <div className="googleSignInContainer my-3">
+        <h4 className="text-white">
+          Sign {location.pathname === "/sign-up" ? "up" : "in"} with
+        </h4>
         <img className="googleIcon" src={GoogleIcon} onClick={googleLogin} />
       </div>
     </>

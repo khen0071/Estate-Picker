@@ -2,9 +2,15 @@
 import { motion } from "framer-motion";
 
 const animations = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { y: 100 },
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
 };
 
 const AnimatedPage = ({ children }) => {
