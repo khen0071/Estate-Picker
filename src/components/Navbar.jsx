@@ -13,92 +13,72 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={styles.navbarMobile_container}>
-        <footer className={styles.navbar}>
-          <nav className={styles.navbarNav}>
-            <ul className={styles.navbarListItems}>
-              <li
-                className={styles.navbarListItem}
-                onClick={() => navigate("/")}
-              >
-                {/* Alternate  */}
-                {/* {pathMatchRoute("/") ? (
+      <div className="md:hidden">
+        <div>
+          <footer className={styles.navbar}>
+            <nav className={styles.navbarNav}>
+              <ul className={styles.navbarListItems}>
+                <li
+                  className={styles.navbarListItem}
+                  onClick={() => navigate("/")}
+                >
+                  {/* Alternate  */}
+                  {/* {pathMatchRoute("/") ? (
                 <i className="fa-solid fa-magnifying-glass icon"></i>
               ) : (
                 <i className="fa-solid fa-magnifying-glass icon-dark"></i>
               )} */}
 
-                <i
-                  className={
-                    pathMatchRoute("/")
-                      ? "fa-solid fa-magnifying-glass icon"
-                      : "fa-solid fa-magnifying-glass icon-dark"
-                  }
-                ></i>
+                  <i
+                    className={
+                      pathMatchRoute("/")
+                        ? "fa-solid fa-magnifying-glass icon"
+                        : "fa-solid fa-magnifying-glass icon-dark"
+                    }
+                  ></i>
 
-                <p
-                  className={
-                    pathMatchRoute("/") ? "navbarParaActive" : "navbarPara"
-                  }
-                >
-                  Explore
-                </p>
-              </li>
-              <li
-                className={styles.navbarListItem}
-                onClick={() => navigate("/offers")}
-              >
-                <i
-                  className={
-                    pathMatchRoute("/offers")
-                      ? "fa-solid fa-tags icon"
-                      : "fa-solid fa-tags icon-dark"
-                  }
-                ></i>
-
-                <p
-                  className={
-                    pathMatchRoute("/offers")
-                      ? "navbarParaActive"
-                      : "navbarPara"
-                  }
-                >
-                  Offers
-                </p>
-              </li>{" "}
-              <li
-                className={styles.navbarListItem}
-                onClick={() => navigate("/profile")}
-              >
-                <i
-                  className={
-                    pathMatchRoute("/profile")
-                      ? "fa-solid fa-user icon"
-                      : "fa-solid fa-user icon-dark"
-                  }
-                ></i>
-
-                <p
-                  className={
-                    pathMatchRoute("/profile")
-                      ? "navbarParaActive"
-                      : "navbarPara"
-                  }
-                >
-                  Profile
-                </p>
-
-                {/* {!user ? (
                   <p
                     className={
-                      pathMatchRoute("/profile")
+                      pathMatchRoute("/") ? "navbarParaActive" : "navbarPara"
+                    }
+                  >
+                    Explore
+                  </p>
+                </li>
+                <li
+                  className={styles.navbarListItem}
+                  onClick={() => navigate("/offers")}
+                >
+                  <i
+                    className={
+                      pathMatchRoute("/offers")
+                        ? "fa-solid fa-tags icon"
+                        : "fa-solid fa-tags icon-dark"
+                    }
+                  ></i>
+
+                  <p
+                    className={
+                      pathMatchRoute("/offers")
                         ? "navbarParaActive"
                         : "navbarPara"
                     }
                   >
-                    Login
+                    Offers
                   </p>
-                ) : (
+                </li>{" "}
+                <li
+                  className={styles.navbarListItem}
+                  onClick={() => navigate("/profile")}
+                >
+                  <i
+                    className={
+                      pathMatchRoute("/profile")
+                        ? "fa-solid fa-user icon"
+                        : "fa-solid fa-user icon-dark"
+                    }
+                  ></i>
+
                   <p
                     className={
                       pathMatchRoute("/profile")
@@ -108,11 +88,11 @@ const Navbar = () => {
                   >
                     Profile
                   </p>
-                )} */}
-              </li>
-            </ul>
-          </nav>
-        </footer>
+                </li>
+              </ul>
+            </nav>
+          </footer>
+        </div>
       </div>
     </>
   );

@@ -221,7 +221,10 @@ const Listing = () => {
                     Floor Area
                   </div>
                   <p className="text-[12px] text-white font-bold md:text-[14px]">
-                    {listing.floorArea}{" "}
+                    {listing.floorArea
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                    Sq Ft
                   </p>
                 </div>
               </div>
@@ -234,7 +237,7 @@ const Listing = () => {
                     Furnished
                   </div>
                   <p className="text-[12px] text-white font-bold md:text-[14px]">
-                    {listing.parking ? "Yes" : "Not Furnished"}
+                    {listing.furnished ? "Yes" : "Not Furnished"}
                   </p>
                 </div>
               </div>

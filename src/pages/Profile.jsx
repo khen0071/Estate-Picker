@@ -15,9 +15,8 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase.config";
 import ListingItem from "../components/ListingItem";
-import styles from "../styles/Profile.module.css";
+
 import { motion } from "framer-motion";
-import { Spinner } from "react-bootstrap";
 
 const profileVariant = {
   initial: {
@@ -126,7 +125,7 @@ const Profile = () => {
         variants={profileVariant}
         initial="initial"
         animate="animate"
-        className="m-5"
+        className="m-5 min-h-[80vh]"
       >
         <div className="flex justify-between my-5">
           <h1 className="text-[18px] text-white uppercase font-semibold md:text-[24px]">
@@ -234,23 +233,21 @@ const Profile = () => {
             </Link>
           </div>
 
-          <div className={styles.listingContainer}>
-            {!loading && listings?.length > 0 && (
-              <>
-                <div className={styles.listingList}>
-                  {listings.map((listing) => (
-                    <ListingItem
-                      key={listings.id}
-                      listing={listing.data}
-                      id={listing.id}
-                      onDelete={() => onDelete(listing.id)}
-                      onEdit={() => onEdit(listing.id)}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
-          </div>
+          {!loading && listings?.length > 0 && (
+            <>
+              <div className="grid 2xl:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-4">
+                {listings.map((listing) => (
+                  <ListingItem
+                    key={listings.id}
+                    listing={listing.data}
+                    id={listing.id}
+                    onDelete={() => onDelete(listing.id)}
+                    onEdit={() => onEdit(listing.id)}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </motion.div>
     </>

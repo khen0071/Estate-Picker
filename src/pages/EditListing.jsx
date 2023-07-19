@@ -14,7 +14,19 @@ import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
 
-import styles from "../styles/CreateListings.module.css";
+import { motion } from "framer-motion";
+
+const createVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
 
 const EditListing = () => {
   const [listing, setListing] = useState(false);
@@ -181,6 +193,7 @@ const EditListing = () => {
     setLoading(false);
     toast.success("Listing Saved");
     navigate(`/category/${formDataCopy.type}/${docRef.id}`);
+    console.log(formData);
   };
 
   const onMutate = (e) => {
@@ -216,27 +229,41 @@ const EditListing = () => {
 
   return (
     <>
-      <div className={styles.createContainer}>
-        <div className={styles.createContent}>
-          <div className={styles.goBack}>
-            <h2>Edit Listing</h2>
+      <motion.div
+        variants={createVariant}
+        initial="initial"
+        animate="animate"
+        className="m-5  md:h-[80vh]"
+      >
+        <form onSubmit={onSubmit}>
+          <div className="flex justify-between items-center my-5">
+            <h1 className="text-[18px] text-white uppercase font-semibold md:text-[18px]">
+              Edit Listing
+            </h1>
+
             <Link to="/profile">
-              <button>Go Back</button>
+              <button className="buttonContainer font-semibold text-[10px] md:text-[12px]">
+                Go Back
+              </button>
             </Link>
           </div>
 
-          <main>
-            <form onSubmit={onSubmit} className={styles.formContainer}>
-              <div className={styles.formThirdSection}>
-                <h4>Leasing Terms</h4>
-                <label className={styles.formLabel}>Sell / Rent</label>
-                <div className={styles.formButtons}>
+          <div className="flex flex-col  justify-between items-center mx-3 pt-2 md:mx-8 md:flex-row md:space-x-3">
+            <div className="space-y-1 flex flex-col w-full my-1 p-3 md:p-6 hover:bg-[#4B3F51] border border-l-4 border-t-4 border-gray hover:border-white ease-in-out duration-500 md:h-[450px]">
+              <h1 className="text-gray uppercase text-center border-b-2 pb-2 mb-2">
+                Lease / Rent Terms
+              </h1>
+              <div className="flex space-x-2 items-center pb-3">
+                <div className="text-[14px] text-white font-semibold w-[100px]">
+                  Sell / Rent:
+                </div>
+                <div className="space-x-2">
                   <button
                     id="type"
                     value="sale"
                     onClick={onMutate}
                     className={
-                      type === "sale" ? "buttonActive" : "buttonInActive"
+                      type === "sale" ? "buttonActive" : "buttonInactive"
                     }
                   >
                     Sell
@@ -246,17 +273,21 @@ const EditListing = () => {
                     value="rent"
                     onClick={onMutate}
                     className={
-                      type === "rent" ? "buttonActive" : "buttonInActive"
+                      type === "rent" ? "buttonActive" : "buttonInactive"
                     }
                   >
                     Rent
                   </button>
                 </div>
-                <label className={styles.formLabel}>Create Offer?</label>
-                <small>If Yes. Indicate discounted price.</small>
-                <div className={styles.formButtons}>
+              </div>
+              <div className="flex space-x-2 items-center">
+                <div className="text-[14px] text-white font-semibold  w-[100px]">
+                  Create Offer?
+                </div>
+
+                <div className="space-x-2">
                   <button
-                    className={offer ? "buttonActive" : "buttonInActive"}
+                    className={offer ? "buttonActive" : "buttonInactive"}
                     type="button"
                     id="offer"
                     value={true}
@@ -268,7 +299,7 @@ const EditListing = () => {
                     className={
                       !offer && offer !== null
                         ? "buttonActive"
-                        : "buttonInActive"
+                        : "buttonInactive"
                     }
                     type="button"
                     id="offer"
@@ -278,50 +309,82 @@ const EditListing = () => {
                     No
                   </button>
                 </div>
-
-                <label className={styles.formLabel}>Regular Price</label>
-                <div className={styles.regularPrice}>
-                  <div>
-                    <input
-                      className={styles.formInput}
-                      type="number"
-                      id="regularPrice"
-                      value={regularPrice}
-                      onChange={onMutate}
-                      min="50"
-                      required
-                    />
-                  </div>
-                  <div>{type === "rent" && <p>${regularPrice}/ Month</p>}</div>
-                </div>
-
-                {offer && (
-                  <>
-                    <label className={styles.formLabel}>Discounted Price</label>
-                    <div className={styles.discountedPrice}>
-                      <div>
-                        <input
-                          className={styles.formInput}
-                          type="number"
-                          id="discountedPrice"
-                          value={discountedPrice}
-                          onChange={onMutate}
-                          min="50"
-                          required
-                        />
-                      </div>
-                      <div>
-                        {type === "rent" && <p>${discountedPrice}/ Month</p>}
-                      </div>
-                    </div>
-                  </>
-                )}
               </div>
-              <div className={styles.formFirstSection}>
-                <h4>Property Detail</h4>
-                <label className={styles.formLabel}>Name</label>
+              <p className="text-greenDark text-[10px]">
+                If Yes, Indicate discounted price.
+              </p>
+              <h1 className="text-[12px] text-white font-semibold">
+                Regular Price
+              </h1>
+              <div className="flex items-center pb-3">
+                <div>
+                  <input
+                    className="inputContainer"
+                    type="number"
+                    id="regularPrice"
+                    value={regularPrice}
+                    onChange={onMutate}
+                    min="50"
+                    required
+                  />
+                </div>
+                <div className="text-white pl-2 text-[12px]">
+                  {type === "rent" ? (
+                    <p>
+                      $
+                      {regularPrice
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                      / Month
+                    </p>
+                  ) : (
+                    <p>
+                      $
+                      {regularPrice
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {offer && (
+                <>
+                  <h1 className="text-[12px] text-white font-semibold">
+                    Discounted Price
+                  </h1>
+                  <div className="flex items-center">
+                    <div>
+                      <input
+                        className="inputContainer"
+                        type="number"
+                        id="discountedPrice"
+                        value={discountedPrice}
+                        onChange={onMutate}
+                        min="50"
+                        required
+                      />
+                    </div>
+                    <div className="text-white pl-2 text-[12px]">
+                      {type === "rent" ? (
+                        <p>${discountedPrice}/ Month</p>
+                      ) : (
+                        <p>${discountedPrice}</p>
+                      )}
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="space-y-1 flex flex-col w-full my-1 p-3 md:p-6 hover:bg-[#4B3F51] border border-l-4 border-t-4 border-gray hover:border-white ease-in-out duration-500 md:h-[450px]">
+              <h1 className="text-gray uppercase text-center border-b-2 pb-2 mb-2">
+                Property detail
+              </h1>
+              <div className="pb-3">
+                <h1 className="text-[12px] text-white font-semibold">Name</h1>
                 <input
-                  className={styles.formInput}
+                  className="inputContainerFull"
                   type="text"
                   id="name"
                   value={name}
@@ -330,10 +393,11 @@ const EditListing = () => {
                   minLength="10"
                   required
                 />
-
-                <label className={styles.formLabel}>Address</label>
+                <h1 className="text-[12px] text-white font-semibold">
+                  Address
+                </h1>
                 <textarea
-                  className={styles.formInput}
+                  className="inputContainerFull"
                   type="text"
                   id="location"
                   value={location}
@@ -342,10 +406,11 @@ const EditListing = () => {
                   minLength="10"
                   required
                 />
-
-                <label className={styles.formLabel}>Bedrooms</label>
+                <h1 className="text-[12px] text-white font-semibold">
+                  Bedrooms
+                </h1>
                 <input
-                  className={styles.formInput}
+                  className="inputContainerFull"
                   type="number"
                   id="bedrooms"
                   value={bedrooms}
@@ -354,10 +419,12 @@ const EditListing = () => {
                   max="50"
                   required
                 />
+                <h1 className="text-[12px] text-white font-semibold">
+                  Bathrooms
+                </h1>
 
-                <label className={styles.formLabel}>Bathrooms</label>
                 <input
-                  className={styles.formInput}
+                  className="inputContainerFull"
                   type="number"
                   id="bathrooms"
                   value={bathrooms}
@@ -366,39 +433,47 @@ const EditListing = () => {
                   max="50"
                   required
                 />
-
-                <label className={styles.formLabel}>Furnished</label>
-                <div className={styles.formButtons}>
-                  <button
-                    className={furnished ? "buttonActive" : "buttonInActive"}
-                    type="button"
-                    id="furnished"
-                    value={true}
-                    onClick={onMutate}
-                  >
-                    Yes
-                  </button>
-                  <button
-                    className={
-                      !furnished && furnished !== null
-                        ? "buttonActive"
-                        : "buttonInActive"
-                    }
-                    type="button"
-                    id="furnished"
-                    value={false}
-                    onClick={onMutate}
-                  >
-                    No
-                  </button>
+                <div className="flex items-center space-x-3">
+                  <h1 className="text-[14px] text-white font-semibold pb-1">
+                    Furnished:
+                  </h1>
+                  <div className="flex space-x-2 items-center">
+                    <button
+                      className={furnished ? "buttonActive" : "buttonInactive"}
+                      type="button"
+                      id="furnished"
+                      value={true}
+                      onClick={onMutate}
+                    >
+                      Yes
+                    </button>
+                    <button
+                      className={
+                        !furnished && furnished !== null
+                          ? "buttonActive"
+                          : "buttonInactive"
+                      }
+                      type="button"
+                      id="furnished"
+                      value={false}
+                      onClick={onMutate}
+                    >
+                      No
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              <div className={styles.formSecondSection}>
-                <h4>Exterior Detail</h4>
-                <label className={styles.formLabel}>Number of Floors</label>
+            </div>
+            <div className="space-y-1 flex flex-col w-full my-1 p-3 md:p-6 hover:bg-[#4B3F51] border border-l-4 border-t-4 border-gray hover:border-white ease-in-out duration-500 md:h-[450px]">
+              <h1 className="text-gray uppercase text-center border-b-2 pb-2 mb-2">
+                exterior detail
+              </h1>
+              <div className="pb-3">
+                <h1 className="text-[12px] text-white font-semibold">
+                  Number of Floors
+                </h1>
                 <input
-                  className={styles.formInput}
+                  className="inputContainerFull"
                   type="number"
                   id="floors"
                   value={floors}
@@ -407,10 +482,11 @@ const EditListing = () => {
                   max="50"
                   required
                 />
-
-                <label className={styles.formLabel}>Floor Area</label>
+                <h1 className="text-[12px] text-white font-semibold">
+                  Floor Area
+                </h1>
                 <input
-                  className={styles.formInput}
+                  className="inputContainerFull"
                   type="number"
                   id="floorArea"
                   value={floorArea}
@@ -419,37 +495,40 @@ const EditListing = () => {
                   max="50000"
                   required
                 />
-
-                <label className={styles.formLabel}>Parking</label>
-                <div className={styles.formButtons}>
-                  <button
-                    className={parking ? "buttonActive" : "buttonInActive"}
-                    type="button"
-                    id="parking"
-                    value={true}
-                    onClick={onMutate}
-                  >
-                    Yes
-                  </button>
-                  <button
-                    className={
-                      !parking && parking !== null
-                        ? "buttonActive"
-                        : "buttonInActive"
-                    }
-                    type="button"
-                    id="parking"
-                    value={false}
-                    onClick={onMutate}
-                  >
-                    No
-                  </button>
+                <div className="flex items-center space-x-3">
+                  <h1 className="text-[14px] text-white font-semibold">
+                    Parking:
+                  </h1>
+                  <div className="flex space-x-2 items-center">
+                    <button
+                      className={parking ? "buttonActive" : "buttonInactive"}
+                      type="button"
+                      id="parking"
+                      value={true}
+                      onClick={onMutate}
+                    >
+                      Yes
+                    </button>
+                    <button
+                      className={
+                        !parking && parking !== null
+                          ? "buttonActive"
+                          : "buttonInactive"
+                      }
+                      type="button"
+                      id="parking"
+                      value={false}
+                      onClick={onMutate}
+                    >
+                      No
+                    </button>
+                  </div>
                 </div>
-
-                <label className={styles.formLabel}>Images</label>
-                <div className={styles.smallText}></div>
+                <h1 className="text-[14px] text-white font-semibold mt-3">
+                  Images
+                </h1>
                 <input
-                  className={styles.formInput}
+                  className="inputContainerFull"
                   type="file"
                   id="images"
                   onChange={onMutate}
@@ -458,20 +537,26 @@ const EditListing = () => {
                   multiple
                   required
                 />
-                <small className={styles.imagesInfo}>
+                <div className="text-[12px] text-white">
                   Note: Max of 6 images only.
-                </small>
-                <small className={styles.imagesInfo}>
+                </div>
+                <div className="text-[12px] text-white">
                   First uploaded image will be the cover image.
-                </small>
-                <button type="submit" className={styles.submitButton}>
-                  Submit Listing
-                </button>
+                </div>
+
+                <div className="flex items-center justify-center font-semibold">
+                  <button
+                    type="submit"
+                    className="buttonContainer text-[12px] mt-5"
+                  >
+                    Update Listing
+                  </button>
+                </div>
               </div>
-            </form>
-          </main>
-        </div>
-      </div>
+            </div>
+          </div>
+        </form>
+      </motion.div>
     </>
   );
 };

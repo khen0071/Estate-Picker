@@ -1,4 +1,4 @@
-import ExploreSlider from "../components/ExploreSlider";
+// import ExploreSlider from "../components/ExploreSlider";
 import { motion } from "framer-motion";
 import Hero from "../components/Hero";
 import Featured from "../components/Featured";

@@ -42,7 +42,7 @@ const Offers = () => {
           listingsRef,
           where("offer", "==", true),
           orderBy("timestamp", "desc"),
-          limit(6)
+          limit(3)
         );
 
         //Execute Query
@@ -112,7 +112,7 @@ const Offers = () => {
   return (
     <>
       <motion.div
-        className="m-3 my-5 md:mx-20 p-0"
+        className="m-3 my-5 md:mx-20 p-0 min-h-[80vh]"
         variants={categoryVariant}
         initial="initial"
         animate="animate"
@@ -150,7 +150,9 @@ const Offers = () => {
             </main>
           </>
         ) : (
-          <p>There are no current offers.</p>
+          <p className="text-center text-white text-[18px]">
+            No Available Listings for Offers
+          </p>
         )}
       </motion.div>
     </>

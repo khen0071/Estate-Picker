@@ -29,7 +29,7 @@ const OAuth = () => {
           timestamp: serverTimestamp(),
         });
       }
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
       toast.error("Could not authorize");
     }

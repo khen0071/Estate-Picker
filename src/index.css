@@ -158,6 +158,7 @@ button {
   width: 100%;
   margin: auto;
   border: 5px solid #845357;
+  margin-top: 10px;
 }
 
 .swiperSlideDivExplore {
@@ -192,6 +193,7 @@ button {
 @media only screen and (max-width: 600px) {
   .swiperSlideDiv {
     min-height: 400px;
+    margin-top: 0px;
   }
 }
 

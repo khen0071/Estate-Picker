@@ -10,7 +10,6 @@ import {
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.config";
 
-import Spinner from "../components/Spinner";
 import Loader from "../components/Loader";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
@@ -38,13 +37,12 @@ const CreateListing = () => {
     // structure: "condominium",
     bedrooms: 1,
     bathrooms: 1,
-    parking: false,
-    furnished: false,
+    parking: true,
+    furnished: true,
     location: "",
     offer: true,
     regularPrice: 0,
     discountedPrice: 0,
-
     floorArea: 0,
     images: {},
     // latitude: 0,
@@ -211,12 +209,12 @@ const CreateListing = () => {
         variants={createVariant}
         initial="initial"
         animate="animate"
-        className="m-5"
+        className="m-5  md:h-[80vh]"
       >
         <form onSubmit={onSubmit}>
-          <div className="flex justify-between my-5">
-            <h1 className="text-[18px] text-white uppercase font-semibold md:text-[24px]">
-              My Profile
+          <div className="flex justify-between items-center my-5">
+            <h1 className="text-[18px] text-white uppercase font-semibold md:text-[18px]">
+              Create Listing
             </h1>
 
             <Link to="/profile">
@@ -226,8 +224,8 @@ const CreateListing = () => {
             </Link>
           </div>
 
-          <div className="flex flex-col justify-between items-center mx-3 pt-2 md:mx-8 md:flex-row md:space-x-3">
-            <div className="space-y-1 flex flex-col w-full my-1 p-3 md:p-6 hover:bg-[#4B3F51] border border-l-4 border-t-4 border-gray hover:border-white ease-in-out duration-500">
+          <div className="flex flex-col  justify-between items-center mx-3 pt-2 md:mx-8 md:flex-row md:space-x-3">
+            <div className="space-y-1 flex flex-col w-full my-1 p-3 md:p-6 hover:bg-[#4B3F51] border border-l-4 border-t-4 border-gray hover:border-white ease-in-out duration-500 md:h-[450px]">
               <h1 className="text-gray uppercase text-center border-b-2 pb-2 mb-2">
                 Lease / Rent Terms
               </h1>
@@ -288,7 +286,7 @@ const CreateListing = () => {
                   </button>
                 </div>
               </div>
-              <p className="text-red text-[10px]">
+              <p className="text-greenDark text-[10px]">
                 If Yes, Indicate discounted price.
               </p>
               <h1 className="text-[12px] text-white font-semibold">
@@ -355,7 +353,7 @@ const CreateListing = () => {
               )}
             </div>
 
-            <div className="space-y-1 flex flex-col w-full my-1 p-3 md:p-6 hover:bg-[#4B3F51] border border-l-4 border-t-4 border-gray hover:border-white ease-in-out duration-500">
+            <div className="space-y-1 flex flex-col w-full my-1 p-3 md:p-6 hover:bg-[#4B3F51] border border-l-4 border-t-4 border-gray hover:border-white ease-in-out duration-500 md:h-[450px]">
               <h1 className="text-gray uppercase text-center border-b-2 pb-2 mb-2">
                 Property detail
               </h1>
@@ -442,7 +440,7 @@ const CreateListing = () => {
                 </div>
               </div>
             </div>
-            <div className="space-y-1 flex flex-col w-full my-1 p-3 md:p-6 hover:bg-[#4B3F51] border border-l-4 border-t-4 border-gray hover:border-white ease-in-out duration-500">
+            <div className="space-y-1 flex flex-col w-full my-1 p-3 md:p-6 hover:bg-[#4B3F51] border border-l-4 border-t-4 border-gray hover:border-white ease-in-out duration-500 md:h-[450px]">
               <h1 className="text-gray uppercase text-center border-b-2 pb-2 mb-2">
                 exterior detail
               </h1>
@@ -461,7 +459,7 @@ const CreateListing = () => {
                   required
                 />
                 <h1 className="text-[12px] text-white font-semibold">
-                  Floor Area
+                  Floor Area Sq Ft
                 </h1>
                 <input
                   className="inputContainerFull"
@@ -522,7 +520,7 @@ const CreateListing = () => {
                   First uploaded image will be the cover image.
                 </div>
 
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center font-semibold">
                   <button
                     type="submit"
                     className="buttonContainer text-[12px] mt-5"

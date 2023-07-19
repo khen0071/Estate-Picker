@@ -66,7 +66,7 @@ const SignUp = () => {
 
       await setDoc(doc(db, "users", user.uid), formDataCopy);
 
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
       toast.error("Something went wrong");
     }
@@ -78,7 +78,7 @@ const SignUp = () => {
         variants={formVariant}
         initial="initial"
         animate="animate"
-        className="h-[85vh] flex justify-center items-start md:h-[85vh]  md:items-center"
+        className="h-[85vh] flex justify-center items-start md:h-full  md:items-center"
       >
         <div className="border-2 border-white m-5 p-10 md:m-20">
           <h1 className="text-center text-[24px] text-lightOrange font-bold uppercase">

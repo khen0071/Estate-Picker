@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ListingItem = ({ listing, id, onDelete, onEdit }) => {
   const navigate = useNavigate();

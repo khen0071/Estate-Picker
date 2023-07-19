@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import ScrollToTop from "./components/ScrollToTop";
@@ -10,7 +11,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import AnimatedPage from "./components/AnimatedPage";
 import { AnimatePresence } from "framer-motion";
-import Header from "./components/Header";
 
 const App = () => {
   return (
@@ -20,13 +20,13 @@ const App = () => {
           <ScrollToTop />
           <Header />
 
-          <AnimatePresence mode="wait">
-            <AnimatedPage>
-              <AnimatedRoutes />
-            </AnimatedPage>
-          </AnimatePresence>
-
-          {/* <Navbar /> */}
+          <div className="max-w-[1440px] m-auto">
+            <AnimatePresence mode="wait">
+              <AnimatedPage>
+                <AnimatedRoutes />
+              </AnimatedPage>
+            </AnimatePresence>
+          </div>
           <Footer />
         </Router>
 

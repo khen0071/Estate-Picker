@@ -16,10 +16,7 @@ const Presentation = () => {
           </strong>{" "}
           Essentials at Your Fingertips
         </h1>
-        {/* <p>Search for the right home</p> */}
-        {/* <p className="text-white italic font-semibold">
-          - Your One-Stop Shop for Finding Your Dream Home
-        </p> */}
+
         <p className="text-lightGray text-[14px] italic md:text-[16px]">
           - At{" "}
           <strong className="font-bold text-[16px] text-white md:text-[20px]">
