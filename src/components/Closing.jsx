@@ -1,7 +1,7 @@
 const Closing = () => {
   return (
     <>
-      <div className="mx-[30px] text-center md:p-10">
+      <div className="mx-[30px] mt-8 text-center md:p-10">
         <div className="w-[250px] mx-auto border-t-2 border-orange"></div>
         <h1 className="p-5 text-[24px] text-white font-bold ">
           Explore With Us

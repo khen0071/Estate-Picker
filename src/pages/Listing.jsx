@@ -189,7 +189,7 @@ const Listing = () => {
                     Parking
                   </div>
                   <p className="text-[12px] text-white font-bold md:text-[14px]">
-                    {listing.parking ? "available" : "unavailable"}
+                    {listing.parking ? "Available" : "Unavailable"}
                   </p>
                 </div>
               </div>
@@ -234,7 +234,7 @@ const Listing = () => {
                     Furnished
                   </div>
                   <p className="text-[12px] text-white font-bold md:text-[14px]">
-                    {listing.parking ? "furnished" : "not furnished"}
+                    {listing.parking ? "Yes" : "Not Furnished"}
                   </p>
                 </div>
               </div>

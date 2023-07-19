@@ -41,7 +41,7 @@ const Contact = () => {
     <>
       <div className="h-[85vh] flex justify-center my-20 items-start md:h-[85vh] md:items-center md:my-0">
         <div className="border-2 border-white m-5 p-10 md:m-20">
-          <h1 className="text-center text-[24px] text-lightOrange font-bold uppercase">
+          <h1 className="text-center text-[22px] text-lightOrange font-bold uppercase">
             Contact Landlord
           </h1>
           <h1 className="text-center text-[10px] text-white pb-1 mb-3 border-b-2 md:text-[12px]">

@@ -119,7 +119,7 @@ const SignIn = () => {
                 Forgot Password?
               </Link>
             </p>
-            <p className="text-white font-semibold text-[14px]">
+            <p className="text-white font-semibold text-[13px]">
               Don't have an account yet?{" "}
               <Link to="/sign-up">
                 <strong className="text-lightOrange cursor-pointer uppercase">

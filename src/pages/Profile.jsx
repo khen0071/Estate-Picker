@@ -17,6 +17,7 @@ import { db } from "../firebase.config";
 import ListingItem from "../components/ListingItem";
 import styles from "../styles/Profile.module.css";
 import { motion } from "framer-motion";
+import { Spinner } from "react-bootstrap";
 
 const profileVariant = {
   initial: {
@@ -125,7 +126,7 @@ const Profile = () => {
         variants={profileVariant}
         initial="initial"
         animate="animate"
-        className={styles.profile_container}
+        className="m-5"
       >
         <div className="flex justify-between my-5">
           <h1 className="text-[18px] text-white uppercase font-semibold md:text-[24px]">
